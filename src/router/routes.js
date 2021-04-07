@@ -19,7 +19,9 @@ const {
 const routes = Router();
 
 routes.route("/cidade").post(createCity).get(getCity);
+
 routes.route("/cidade/search/:city").get(getCityPerName);
+
 routes.route("/cidade/:state").get(getState);
 
 routes.route("/usuario").post(createUser).get(getUser);

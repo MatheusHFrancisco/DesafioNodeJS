@@ -18,7 +18,7 @@ const getUserPerName = async (req, res) => {
     const user = await Users.find({ name: `${userName}` }).exec();
     res.send(user);
   } catch (error) {
-    if (error) return res.status(404).send("User doenst exist");
+    if (error) return res.status(404).send("User doesn't exist");
   }
 };
 
@@ -40,7 +40,7 @@ const getUserPerId = async (req, res) => {
     const user = await Users.findById(userId).exec();
     res.send(user);
   } catch (error) {
-    if (error) return res.status(404).send("User doenst exist");
+    if (error) return res.status(404).send("User doesn't exist");
   }
 };
 
@@ -67,7 +67,7 @@ const createUser = (req, res) => {
       console.log(error);
       return error;
     } else {
-      res.json({ message: "The user is created!" });
+      res.json(user);
     }
   });
 };
@@ -81,7 +81,7 @@ const updateUser = async (req, res) => {
       console.log(error);
       return error;
     } else {
-      res.json({ message: "The user is update!" });
+      res.json(user);
     }
   });
 };
@@ -90,7 +90,7 @@ const deleteUser = async (req, res) => {
   const userName = req.params.name;
   const Users = mongoDB.mongoose.model("User", mongoDB.userSchema);
   const user = await Users.findOneAndRemove({ name: `${userName}` }).exec();
-  res.json({ message: "User deleted" });
+  res.json({});
 };
 
 module.exports = {

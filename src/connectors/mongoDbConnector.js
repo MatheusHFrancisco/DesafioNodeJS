@@ -2,11 +2,17 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-mongoose.connect(
-  process.env.DB_CONNECT,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("Connected to the Database")
-);
+mongoose
+  .connect(process.env.DB_CONNECT, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to the Database");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const citySchema = new mongoose.Schema({
   name: String,
