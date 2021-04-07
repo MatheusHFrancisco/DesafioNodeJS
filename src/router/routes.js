@@ -25,11 +25,13 @@ routes.route("/cidade/search/:city").get(getCityPerName);
 routes.route("/cidade/:state").get(getState);
 
 routes.route("/usuario").post(createUser).get(getUser);
+
 routes
   .route("/usuario/search/:name")
   .get(getUserPerName)
   .put(updateUser)
   .delete(deleteUser);
+
 routes.route("/usuario/:id").get(getUserPerId);
 
 module.exports = routes;

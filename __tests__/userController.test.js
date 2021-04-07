@@ -1,5 +1,4 @@
 const app = require("../src/index");
-const { userSchema } = require("../src/connectors/mongoDbConnector");
 const request = require("supertest");
 jest.setTimeout(40000);
 
@@ -15,19 +14,8 @@ describe("userController", () => {
   });
 
   afterEach(async (done) => {
-    //await mongoose.connection.db.dropCollection("users");
     return serverTest && serverTest.close(done);
   });
-
-  /* beforeEach(async () => {
-    user = {
-      name: "Matheus",
-      sex: "Masculino",
-      dataOfBirth: "18032000",
-      age: "21",
-      cityLive: "Mogi Mirim",
-    };
-  }); */
 
   it("Should create user", async () => {
     const user = {

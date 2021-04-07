@@ -1,5 +1,4 @@
 const app = require("../src/index");
-const { citySchema } = require("../src/connectors/mongoDbConnector");
 const request = require("supertest");
 jest.setTimeout(40000);
 
@@ -15,7 +14,6 @@ describe("cityController", () => {
   });
 
   afterEach(async (done) => {
-    //await mongoose.connection.db.dropCollection("users");
     return serverTest && serverTest.close(done);
   });
 

@@ -6,7 +6,7 @@ const getCity = async (req, res) => {
     const city = await Cities.find().exec();
     res.send(city);
   } catch (error) {
-    if (error) return res.status(404).send("City doenst exist");
+    if (error) return res.status(404).send("City doesnt exist");
   }
 };
 
@@ -17,7 +17,7 @@ const getCityPerName = async (req, res) => {
     const city = await Cities.find({ name: `${cityName}` }).exec();
     res.send(city);
   } catch (error) {
-    if (error) return res.status(404).send("City doenst exist");
+    if (error) return res.status(404).send("City doesnt exist");
   }
 };
 
@@ -28,7 +28,7 @@ const getState = async (req, res) => {
     const state = await Cities.find({ state: `${stateName}` }).exec();
     res.send(state);
   } catch (error) {
-    if (error) return res.status(404).send("State doenst exist");
+    if (error) return res.status(404).send("State doesnt exist");
   }
 };
 
@@ -47,7 +47,7 @@ const createCity = (req, res) => {
       console.log(error);
       return error;
     } else {
-      res.json({ message: "The city is created!" });
+      res.json(city);
     }
   });
 };
