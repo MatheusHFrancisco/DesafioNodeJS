@@ -26,4 +26,23 @@ describe("cityController", () => {
     const response = await agent.post("/cidade").send(city);
     expect(response.status).toBe(200);
   });
+
+  it("Should getCity", async () => {
+    const response = await agent.get("/cidade");
+    expect(response.status).toBe(200);
+  });
+
+  it("Should getCityPerName", async () => {
+    const cityName = "Mogi Mirim";
+
+    const response = await agent.get("/cidade/search/" + cityName);
+    expect(response.status).toBe(200);
+  });
+
+  it("Should getCityPerState", async () => {
+    const state = "São Paulo";
+
+    const response = await agent.get("/cidade/" + state);
+    expect(response.status).toBe(200);
+  });
 });
