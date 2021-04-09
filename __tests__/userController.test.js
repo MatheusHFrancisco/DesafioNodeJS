@@ -72,7 +72,8 @@ describe("userController", () => {
   });
 
   it("Should delete user per name", async () => {
-    const response = await agent.delete("/usuario/search/" + "Matheus");
+    const name = "Matheus";
+    const response = await agent.delete("/usuario/search/" + name);
     expect(response.status).toBe(200);
   });
 });

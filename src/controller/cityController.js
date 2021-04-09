@@ -52,15 +52,15 @@ const createCity = (req, res) => {
   });
 };
 
-const updateCity = () => {};
+//const updateCity = () => {};
 
-const deleteCity = () => {};
+//const deleteCity = () => {};
 
 module.exports = {
   getCity,
   getCityPerName,
   getState,
   createCity,
-  updateCity,
-  deleteCity,
+  //updateCity,
+  //deleteCity,
 };
